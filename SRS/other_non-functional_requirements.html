@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Document Eye Tracker</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="index.html">
+                        Document Eye Tracker
+                    </a>
+                </li>
+                <li>
+                    <a href="introduction.html">Introduction</a>
+                </li>
+                <li>
+                    <a href="overall_description.html">Overall Description</a>
+                </li>
+                <li>
+                    <a href="external_interface_requirements.html">External Interface Requirments</a>
+                </li>
+                <li>
+                    <a href="system_features.html">System Features</a>
+                </li>
+                <li>
+                    <a href="other_non-functional_requirements.html">Other Non-functional Requirments</a>
+                </li>
+                <li>
+                    <a href="other_requirements.html">Other Requirements</a>
+                </li>
+                <li>
+                    <a href="appendix_A.html">Appendix A: Glossary</a>
+                </li>
+                <li>
+                    <a href="appendix_B.html">Appendix B: Analysis Models</a>
+                </li>
+                <li>
+                    <a href="appendix_C.html">Appendix C: To Be Determined List</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1>5. Other Nonfunctional Requirements</h1>
+                <br>
+                <h2>5.1 Performance Requirements</h2>
+                <p>Performance is one of our main objectives.The eye tracker will be considerately accurate. Generation of the report will be fast, accurate, and presented in an aesthetically pleasing view. It may not able to track exactly till the exact word the reader has read on the document, but it will be able to detect how long the reader spent looking at it.</p>
+                <br>
+                <h2>5.2 Safety Requirements</h2>
+                <p>If there is extensive damage to wide part of the database due to catastrophic failure, such as a disk crash, the recovery method restores a past copy of the database that was backed up hourly to archival storage thus ensuring safety of sensitive information.</p>
+                <br>
+                <h2>5.3 Security Requirements</h2>
+                <p>Users can sign up with their email/password or using a federated authentication service provided by Facebook/Gmail. As this application won’t keep much of any personal information so they can attempt log in as many times as they want. It is necessitated that credentials are provided when opening the app over a new instance, or switching platforms. In case of wrong password or username, the user will be alerted with a “Wrong Email or Password” message.</p>
+                <br>
+                <h2>5.4 Software Quality Attributes</h2>
+                <p><b>Availability: </b>The PDFs will be available on the application or website as long as the user keeps it, as soon as the user removes it from their account the document and related data will be removed automatically from the database.</p>
+                <p><b>Correctness: </b>The report will be generated via a graph comparing the time of the pictures taken at regular intervals so that it will have a reasonable percentage of correctness, but it depends a lot on the accuracy of the hardwares used.</p>
+                <p><b>Maintainability: </b>The administrator of this application will maintain the application with honesty and if they find any bug in software then will take necessary steps to solve that problem as soon as possible.</p>
+                <br>
+                <h2>5.5 Business Rules</h2>
+                <p>The application will be absolutely free. There is no cost associated or a subscription to use its features. All the reports will be generated and provided to the user for free.</p>
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Contents</a>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>

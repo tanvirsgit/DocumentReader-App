@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Document Eye Tracker</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="index.html">
+                        Document Eye Tracker
+                    </a>
+                </li>
+                <li>
+                    <a href="introduction.html">Introduction</a>
+                </li>
+                <li>
+                    <a href="overall_description.html">Overall Description</a>
+                </li>
+                <li>
+                    <a href="external_interface_requirements.html">External Interface Requirments</a>
+                </li>
+                <li>
+                    <a href="system_features.html">System Features</a>
+                </li>
+                <li>
+                    <a href="other_non-functional_requirements.html">Other Non-functional Requirments</a>
+                </li>
+                <li>
+                    <a href="other_requirements.html">Other Requirements</a>
+                </li>
+                <li>
+                    <a href="appendix_A.html">Appendix A: Glossary</a>
+                </li>
+                <li>
+                    <a href="appendix_B.html">Appendix B: Analysis Models</a>
+                </li>
+                <li>
+                    <a href="appendix_C.html">Appendix C: To Be Determined List</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1>2. Overall Description</h1>
+                <br>
+                <h2>2.1 Product Perspective</h2>
+                <p>The purpose of the Document Eye Tracker Software is to provide a simple PDF reader over the web and or mobile devices through which its users can facilitate the ability to read documents and know where they left off should they switch platforms for later viewing. The underlying principle for such a product also serves the purpose of “surveillance” where the tracker part of the software comes at play. This can be used between teachers and students, where the teacher can “track” the status/percentage of the document read by the students, so that the authority knows beforehand how much the students conformed to their given tasks.</p>
+                <br>
+                <h2>2.2 Product Functions</h2>
+                <p>The software should perform as a PDF reader at its core and a required list of functions are provided below:
+                	<ul>
+                		<li>Sign-up using name/password</li>
+                		<li>Login through facebook/gmail</li>
+                		<li>Open PDF format documents</li>
+                		<li>Save PDFs for viewing later</li>
+                		<li>Access front facing camera/webcams</li>
+                		<li>Switch to another platform and access PDFs</li>
+                		<li>Appealing, user-friendly UI</li>
+                		<li>Track user’s eye(pupils) to dictate read statistics</li>
+                		<li>Generate user statistics in the background</li>
+                		<li>Report to an admin/authority of said statistics</li>
+                	</ul>
+                </p>
+                <br>
+                <h2>2.3 User Classes and Characteristics</h2>
+                <p>The user classes of this software will strictly be admins and students/readers.
+	                <br><br>User Classes:
+	                <ol>
+	                	<li>Admins</li>
+	                	<li>Students/readers</li>
+	                </ol>
+	                The admin will have all rights to view the status of an user account, and have the ability to revoke access/terminate account should they choose to. The admin will also have access to view statistics for users using the software, which the software will periodically provide during use.
+	                <br><br>
+	                The students/readers has the option to open new accounts, login with properly verified credentials and open PDF documents and read at their leisure. This group of users will also be asked to allow to access cameras from their device so that it does not breach their privacy and they are alerted during the initial installation of the software.
+                </p>
+                <br>
+                <h2>2.4 Operating Environment</h2>
+                <p>
+                	<ul>
+                		<li>Android</li>
+                		<li>PC (Web Browser- Chrome, Firefox, Edge)</li>
+                		<li>Languages – Java(Android), Python(PC/Server), PHP (website backend)</li>
+                		<li>Database – MySQL</li>
+                		<li>Client/Server interaction – HTTP</li>
+                	</ul>
+                </p>
+                <br>
+                <h2>2.5 Design and Implementation Constraints</h2>
+                <p>The product will be designed with multi platform in mind, as such the hardware limitations will have a crucial impact in performance. The camera depending upon the platform is the major bottleneck and will be a design constraint as to how it performs in the real-world implementation depending upon its innate performance. Memory is also a key determinant due to how the processing algorithm works, it will be resource intensive mainly in storage facilities. Security also plays a major role here because the database/server should not be easily accessed as it keeps sensitive information, and even real time images.</p>
+                <br>
+                <h2>2.6 Assumption and Dependencies</h2>
+                <p>The software is heavily dependent on 3rd party frameworks in popular languages (Python, Java) for the eye detection capability. It is also important that these solutions are documented and does not come with a royalty and can be freely implemented in a project without legal issues internally or externally.</p>
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Contents</a>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Document Eye Tracker</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="index.html">
+                        Document Eye Tracker
+                    </a>
+                </li>
+                <li>
+                    <a href="introduction.html">Introduction</a>
+                </li>
+                <li>
+                    <a href="overall_description.html">Overall Description</a>
+                </li>
+                <li>
+                    <a href="external_interface_requirements.html">External Interface Requirments</a>
+                </li>
+                <li>
+                    <a href="system_features.html">System Features</a>
+                </li>
+                <li>
+                    <a href="other_non-functional_requirements.html">Other Non-functional Requirments</a>
+                </li>
+                <li>
+                    <a href="other_requirements.html">Other Requirements</a>
+                </li>
+                <li>
+                    <a href="appendix_A.html">Appendix A: Glossary</a>
+                </li>
+                <li>
+                    <a href="appendix_B.html">Appendix B: Analysis Models</a>
+                </li>
+                <li>
+                    <a href="appendix_C.html">Appendix C: To Be Determined List</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1>System Features</h1>
+                <br>
+                <p>In this project, a camera and eye tracking software APIs are utilized to generate eye detection and tracking algorithms. The algorithms after being fed data from the multiple platforms will be able to generate a statistic and plot a summary of information relevant to that current user and report it to an admin in a clear, concise and presentable way making use of charts and graphs to aid readability.</p>
+                <div style="text-align: center;"><img src="img/system_diagram.png"></div>
+                <p style="text-align: center;">Fig: System Diagram</p>
+                <h2>4.1 PDF Reader</h2>
+                <br>
+                <h3>4.1.1 Description and Priority</h3>
+                <p>The PDF Reader application stores user information by creating an account via
+                Facebook/Gmail or user provided credentials. The PDFs saved with the software is secured and only granted access after a successful login.The data stored has a low risk of being sabotaged by adversaries, as the server validates rigorous checks to requesting accounts each time the app is opened. The other risk this type of application might have is the the radiation from an always active camera directed at the pupils, but that concern is mitigated by studies showing that it is relatively risk free as long as the user is careful with their usage.
+                </p>
+                <br>
+                <h3>4.1.2 Stimulus/Response Sequences</h3>
+                    <ul>
+                        <li>Open account</li>
+                        <li>Open PDF</li>
+                        <li>Read the PDF</li>
+                        <li>Save PDF locally for instant access and in online for switching platform access(Eg. Between Mobile and Computer)</li>
+                        <li>Send User statistics to server for processing</li>
+                        <li>Send email to admins</li>
+                    </ul>
+                <br>
+                <h3>4.1.3 Functional Requirements</h3>
+                <p><b>Admin: </b>Admin will monitor the whole system and the communication between server user. If there is a system failure admin, all operations will be halted and accounts suspended until it is fixed. Admins have the right to revoke accounts, edit account information, and get emails with reports of user progress and view statistics.</p>
+                <p><b>Server: </b>The server is responsible for communication between the different platforms and process reports using image analysis with data gathered the mobile device and PCs. It will act as the bridge between these different machines and keep confidential information.</p>
+                <p><b>User: </b>Users can create accounts within the PDF reader. They can open a PDF, save a PDF, and view their dashboard.</p>
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Contents</a>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>

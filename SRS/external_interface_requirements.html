@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Document Eye Tracker</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="index.html">
+                        Document Eye Tracker
+                    </a>
+                </li>
+                <li>
+                    <a href="introduction.html">Introduction</a>
+                </li>
+                <li>
+                    <a href="overall_description.html">Overall Description</a>
+                </li>
+                <li>
+                    <a href="external_interface_requirements.html">External Interface Requirments</a>
+                </li>
+                <li>
+                    <a href="system_features.html">System Features</a>
+                </li>
+                <li>
+                    <a href="other_non-functional_requirements.html">Other Non-functional Requirments</a>
+                </li>
+                <li>
+                    <a href="other_requirements.html">Other Requirements</a>
+                </li>
+                <li>
+                    <a href="appendix_A.html">Appendix A: Glossary</a>
+                </li>
+                <li>
+                    <a href="appendix_B.html">Appendix B: Analysis Models</a>
+                </li>
+                <li>
+                    <a href="appendix_C.html">Appendix C: To Be Determined List</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1>3. External Interface Requirements</h1>
+                <br>
+                <h2>3.1 User Interfaces</h2>
+                <p>The system will be implemented using  a website and an android application where the users will be able to read pdf. When user opens the software for the first time he/she will be asked to register to the system using a federated authentication service preferably from Facebook/Gmail or register a new account using email/password. So the first screen that will appear is the authentication page.</p>
+                <div style="text-align: center;"><img src="img/email_pass.png"></div>
+                <p>Or if the user opts to sign-up using a federated authentication service such as Facebook/Gmail.</p>
+                <div style="text-align: center;"><img src="img/fb_gmail.png"></div>
+                <br><br>
+                <p>If a login is not successful, an error message is presented to the user.</p>
+                <div style="text-align: center;"><img src="img/email_not_found.png"></div>
+                <br>
+                <p>
+                After successful login, user will be taken to a page where there will be some basic information about the user(account name) and options on the navbar. For the website, it will look like a standard HTML dashboard page. In the Android application the necessary elements will be in textViews, imageViews, etc. The menu items will be presented with a sidebar. Users will be able to download PDFs through a download button in both platforms. After downloading, an integrated PDF viewer(tracker enabled) will render the PDF from within the software.
+                </p>
+                <p>The user will be asked to grant the device to access its camera.</p>
+                <div style="text-align: center;"><img src="img/allow_camera.png"></div>
+                <br>
+                <div style="text-align: center;"><img src="img/mobile_camera_access.png"></div>
+                <br>
+                
+                <h2>3.2 Hardware Interfaces</h2>
+                <p>In this project, the system uses cameras for eye tracking. So in both platforms  the system will need to interact with the camera(front facing in mobile devices/webcam in PCs). For the website, the system would use a 3rd party API which enables access to the webcam. The browser and the underlying operating system will manage protocols and permissions to access the camera. For the android application, camera access will be handled by android standard API for access grant/usage.</p>
+                <br>
+                <h2>3.3 Software Interfaces</h2>
+                <p>The system uses a central server in conjunction with a database to handle functionality. The central server is responsible for processing and analyzing the image patterns and storing a detailed periodic report on the database. When a new user has registered, the database is updated with said credentials. Also when a PDF download is requested, the server sends it over to that requested platform. The website and Android app sends over data via the internet at periodic intervals so that the server can generate a report.</p>
+                <br>
+                <h2>3.4 Communication Interfaces</h2>
+                <p>The communication between the different parts of the system is important since they depend on each other. The website and android application both need to communicate with the server in order to download PDFs and upload user reports. For that HTTP protocol is used to communicate between the components over the internet. However, the communication medium is handled by the underlying operating systems and is of less concern to the software itself provided that it is working correctly to perform its functions.</p>
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Contents</a>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
