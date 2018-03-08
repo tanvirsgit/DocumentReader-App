@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Document Eye Tracker</title>
+
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <h3>Document Eye Tracker</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+      <p>Table Of Contents</p>
+
+      <li class="active">
+        <a href="introduction.html">1. Introduction</a>
+        <a href="document_conventions.html">2. Document Conventions</a>
+        <a href="design_approach.html">3. Design Approach</a>
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">4. Architectural Design</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li><a href="architectural_design.html">4.1 Approach</a></li>
+            <li><a href="architectural_design.html">4.2 Diagram</a></li>
+            <li><a href="architectural_design.html">4.3 Description</a></li>
+          </ul>
+      </li>
+      <li>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">5. Database Design</a>
+        <ul class="collapse list-unstyled" id="pageSubmenu">
+          <li><a href="#">5.1 Approach</a></li>
+          <li><a href="#">5.2 Diagram</a></li>
+          <li><a href="#">5.3 Details of each table</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false">6. Component Design</a>
+        <ul class="collapse list-unstyled" id="pageSubmenu2">
+          <li>
+            <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false">6.1 Subsystem 1</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu3">
+              <li><a href="#">6.1.1 Class Description</a></li>
+              <li><a href="#">6.1.2 Class Diagram</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false">6.2 Subsystem 2</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu4">
+              <li><a href="#">6.2.1 Class Description</a></li>
+              <li><a href="#">6.2.2 Class Diagram</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#pageSubmenu5" data-toggle="collapse" aria-expanded="false">7. Interaction Design</a>
+        <ul class="collapse list-unstyled" id="pageSubmenu5">
+          <li>
+            <a href="#pageSubmenu6" data-toggle="collapse" aria-expanded="false">7.1 Interaction 1</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu6">
+              <li><a href="interaction_design.html">7.1.1 Sequence Diagram</a></li>
+              <li><a href="interaction_design.html">7.1.2 Description/Explanation</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#pageSubmenu7" data-toggle="collapse" aria-expanded="false">7.2 Interaction 2</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu7">
+              <li><a href="interaction_design.html">7.2.1 Sequence Diagram</a></li>
+              <li><a href="interaction_design.html">7.2.2 Description/Explanation</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="risk_assessment.html">Risk Assessment</a>
+      </li>
+      <li>
+        <a href="tentative_implementation_plan.html">Tentative Implementation Plan</a>
+      </li>
+    </ul>
+
+    <ul class="list-unstyled CTAs">
+      <li><button type="button" class="btn btn-info" id="sidebarCollapse2">Hide Contents</button></li>
+
+    </ul>
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content">
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+
+        <div class="navbar-header">
+          <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" style="background-color: #424949;">
+            <i class="glyphicon glyphicon-align-left"></i>
+              <span>Contents</span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <h4><b>Software Design Specification</b></h4>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+    <h1>1. Introduction</h1>
+    <h2>1.1 Purpose of the document</h2>
+    <br>
+    <p>The purpose of this document is to present the system design of the software Document Eye Tracker by which one can determine the extent of how much a document is read. The software will have two types of user: Faculty and Student. A database will store the document(s) uploaded by the faculty in which will be identifiable against the faculty's initials. The uploaded document is available for viewing once a student has logged in and accessed the documents page for a particular faculty within the software. Using an image recognition framework, once a document is read from within the software, it will track the user's pupils and estimate within a certain threshold for determining attention. Along with gaze data, the time spent looking at a document will help determine a better report of gaze and attention a student has spent in reading the document. A report is generated against each individual student accounts if an assigned document has been issued by a faculty, which the faculty can access from his/her panel.</p>
+    <br>
+    <h3>Topics covered include the following: </h3>
+    <ul style="font-size: 1.1em">
+      <li>Detailed description of components</li>
+      <li>User interface design</li>
+      <li>Architecture of the design</li>
+      <li>Design constraints and restrictions</li>
+      <li>Test cases and expected results </li>
+    </ul>
+
+    <div class="line"></div>
+    <h2>1.2 Scope of project</h2>
+    <br>
+    <p>The software is aimed at solving the issue of tracking a student's academic performance by analyzing their study patterns. This will help faculties and teaching fellows understand to a greater depth how a student manages assigned tasks such as homeworks and how much time they actually spend in reviewing study materials. These type of metrics will be benefial to researchers analyzing studying patterns and help genearate better statistics.</p>
+    <div class="line"></div>
+    <h2>1.3 Definitions, Acronyms and Abbreviations</h2>
+    <br>
+    <ul style="font-size: 1.1em">
+      <li>SDS – Software Design Specification. This document represents the requirements that the software must fulfill.</li>
+      <li>Student - A user who is using the software to read assigned materials by a Faculty.</li>
+      <li>Faculty - A user who is using the software to assign reading materials(homeworks), and check reports against user accounts.</li>
+      <li>Administrator/Admin– A person who has administrative privilege/access to the system.</li>
+      <li>UML - Unified Modelling Language</li>
+      <li>ER Diagrams - Entity-Relation Diagrams concerned with Database systems</li>
+    </ul>
+    <div class="line"></div>
+    <h2>1.4 References</h2>
+    <br>
+    <ul style="font-size: 1.1em">
+      <li>PyGaze : http://www.pygaze.org/</li>
+      <li>https://docs.djangoproject.com/en/2.0/</li>
+      <li>Android/SDK: https://developer.android.com/studio/index.html</li>
+      <li>Bootstrap: https://getbootstrap.com/docs/4.0/getting-started/introduction/</li>
+    </ul>
+    </div>
+  </div>
+</div>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+    <script  src="js/index.js"></script>
+  </body>
+</html>

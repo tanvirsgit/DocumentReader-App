@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Document Eye Tracker</title>
+
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <h3>Document Eye Tracker</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+      <p>Table Of Contents</p>
+
+      <li class="active">
+        <a href="introduction.html">1. Introduction</a>
+        <a href="document_conventions.html">2. Document Conventions</a>
+        <a href="design_approach.html">3. Design Approach</a>
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">4. Architectural Design</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li><a href="architectural_design.html">4.1 Approach</a></li>
+            <li><a href="architectural_design.html">4.2 Diagram</a></li>
+            <li><a href="architectural_design.html">4.3 Description</a></li>
+          </ul>
+      </li>
+      <li>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">5. Database Design</a>
+        <ul class="collapse list-unstyled" id="pageSubmenu">
+          <li><a href="#">5.1 Approach</a></li>
+          <li><a href="#">5.2 Diagram</a></li>
+          <li><a href="#">5.3 Details of each table</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false">6. Component Design</a>
+        <ul class="collapse list-unstyled" id="pageSubmenu2">
+          <li>
+            <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false">6.1 Subsystem 1</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu3">
+              <li><a href="#">6.1.1 Class Description</a></li>
+              <li><a href="#">6.1.2 Class Diagram</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false">6.2 Subsystem 2</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu4">
+              <li><a href="#">6.2.1 Class Description</a></li>
+              <li><a href="#">6.2.2 Class Diagram</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#pageSubmenu5" data-toggle="collapse" aria-expanded="false">7. Interaction Design</a>
+        <ul class="collapse list-unstyled" id="pageSubmenu5">
+          <li>
+            <a href="#pageSubmenu6" data-toggle="collapse" aria-expanded="false">7.1 Interaction 1</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu6">
+              <li><a href="interaction_design.html">7.1.1 Sequence Diagram</a></li>
+              <li><a href="interaction_design.html">7.1.2 Description/Explanation</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#pageSubmenu7" data-toggle="collapse" aria-expanded="false">7.2 Interaction 2</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu7">
+              <li><a href="interaction_design.html">7.2.1 Sequence Diagram</a></li>
+              <li><a href="interaction_design.html">7.2.2 Description/Explanation</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="risk_assessment.html">8. Risk Assessment</a>
+      </li>
+      <li>
+        <a href="tentative_implementation_plan.html">9. Tentative Implementation Plan</a>
+      </li>
+    </ul>
+
+    <ul class="list-unstyled CTAs">
+      <li><button type="button" class="btn btn-info" id="sidebarCollapse2">Hide Contents</button></li>
+
+    </ul>
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content">
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+
+        <div class="navbar-header">
+          <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" style="background-color: #424949;">
+            <i class="glyphicon glyphicon-align-left"></i>
+              <span>Contents</span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <h4><b>Software Design Specification</b></h4>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+    <h1>2. Document Conventtions</h1>
+    <br>
+    <p>The document text size will be visible enough to cater to a broad audience irrespective of age.The preferred choice of font is “Sans Serif” and a color scheme that is pleasing to the eyes.</p>
+    <br>
+    <h3>This document uses the following conventions: </h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Type</th>
+          <th scope="col">Abbreviation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-active">
+          <td>Database</td>
+          <td>DB</td>
+        </tr>
+        <tr class="table-active">
+          <td>Unified Modelling Language</td>
+          <td>UML</td>
+        </tr>
+        <tr class="table-active">
+          <td>Entity Relationship</td>
+          <td>ER</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+    <script  src="js/index.js"></script>
+  </body>
+</html>
