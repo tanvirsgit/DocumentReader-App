@@ -126,6 +126,8 @@ class DocumentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    // Document upload function, keeps data already populated in database
     public function update(Request $request, $id)
     {
         $this->validate($request, [
@@ -166,6 +168,8 @@ class DocumentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    // Delete document function, also deletes connected pdfs
     public function destroy($id)
     {
         $document = Document::find($id);
@@ -176,10 +180,11 @@ class DocumentsController extends Controller
         }
 
         if($document->document_pdf != 'nodocument.pdf'){
-            // Delete Image
+            // Delete PDFs
             Storage::delete('public/document_pdfs/'.$document->document_pdf);
         }
         
+        // Delete document
         $document->delete();
         return redirect('/documents')->with('success', 'Document Deleted');
     }

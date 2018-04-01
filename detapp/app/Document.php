@@ -13,6 +13,7 @@ class Document extends Model
     // Timestamps
     public $timestamps = true;
 
+    // Assigning one to many relationship with registered user for uploaded document
     public function user(){
         return $this->belongsTo('App\User');
     }

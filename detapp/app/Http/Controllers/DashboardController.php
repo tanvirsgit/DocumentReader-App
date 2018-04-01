@@ -22,6 +22,8 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // Loads home/dashboard after login
     public function index()
     {
         $user_id = auth()->user()->id;

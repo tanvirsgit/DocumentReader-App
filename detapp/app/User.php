@@ -27,7 +27,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    // Assigning one to many relationship with user for uploaded document
     public function documents(){
         return $this->hasMany('App\Document');
+    }
+
+    // Assigning one to many relationship with user for fed IDs
+    public function socialProvider(){
+        return $this->hasMany('App\SocialProvider');
     }
 }
