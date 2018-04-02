@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Document Eye Tracker</string>
+
+    <!--Titles-->
+    <string name="signin_title">Sign In</string>
+    <string name="signup_title">Sign Up</string>
+
+    <!--Welcome Message-->
+    <string name="splash_welcome_txt">Document Eye Tracker</string>
+
+    <!--Button labels-->
+    <string name="signin_btn_label">" Sign in" </string>
+    <string name="signup_btn_label">" Sign up "</string>
+
+    <string name="signin_fb_btn_label">Sign in with Facebook</string>
+    <string name="signup_fb_btn_label">Sign up with Facebook</string>
+
+    <string name="signin_google_btn_label">Signin with Google</string>
+    <string name="signup_google_btn_label">Signup with Google</string>
+
+    <string name="get_started_btn_label">Get Started</string>
+
+    <!--Edit Text Hints-->
+    <string name="full_name_hint">Full Name</string>
+    <string name="email_address_hint">Email Address</string>
+    <string name="password_hint">Password</string>
+
+    <!--Misc texts-->
+    <string name="forgot_password">Forgot password?</string>
+    <string name="no_account">Don\’t have an account?</string>
+    <string name="have_account">Have an account?</string>
+    <string name="divider_or">OR</string>
+</resources>
