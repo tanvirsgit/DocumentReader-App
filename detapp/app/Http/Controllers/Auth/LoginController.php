@@ -44,7 +44,7 @@ class LoginController extends Controller
 
     public function redirectToProvider()
     {
-        return Socialite::driver('facebook')->redirect();
+        return Socialite::driver('github')->redirect();
     }
 
     /**
@@ -53,18 +53,19 @@ class LoginController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    /*
     // Redirects if fed ID is authorized function
     public function handleProviderCallback()
     {
         // Try if user object is retured from fed ID
         try{
-            $userInfo = Socialite::driver('facebook')->user();
+            $userInfo = Socialite::driver('github')->user();
         } catch(\Exception $e) {
             return redirect('/');
         } 
 
         // Assign social provider
-        $socialProvider = SocialProvider::where('provider_id', $userInfo->getId())-first();
+        $socialProvider = SocialProvider::where('provider_id', $userInfo->getId())->first();
 
         // Check if social provider exists
         if(!$socialProvider){
@@ -72,12 +73,12 @@ class LoginController extends Controller
             // If it does not exist, create new instance
             $user = User::firstOrCreate(
                 ['email' => $userInfo->getEmail()],
-                ['name' => $userInfo-getName()]
+                ['name' => $userInfo->getName()]
             );
 
             $user->socialProvider()->create([
                 'provider_id' => $userInfo->getId(),
-                'provider' => 'facebook'
+                'provider' => 'github'
             ]);
         } else{
 
@@ -86,9 +87,28 @@ class LoginController extends Controller
             auth()->login($user);
             return redirect('/dashboard');
         }
-
-        
-
-        
     }
+
+    */
+
+    
+    public function handleProviderCallback()
+    {
+        $github = Socialite::driver('github')->user();
+
+        $user = new User;
+        $user->name = $github->getName();
+        $user->email = $github->getEmail();
+        $user->save();
+
+        // login the user
+
+        // redirect to the homepage
+
+        
+        print_r($user);
+        // $user->token;
+    }
+
+    
 }

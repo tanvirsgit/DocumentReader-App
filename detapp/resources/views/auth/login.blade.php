@@ -54,10 +54,17 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
+                                <br><br>
+                                <p>Or</p>
+                                <hr>
+                                <a href="{{ url('/login/facebook') }}" class="btn btn-info">Login with Facebook</a>
+                                <a href="{{ url('/login/google') }}" class="btn btn-success">Login with Google</a>
+                                <a href="{{ url('login/github') }}" class="btn btn-success">Login with GitHub</a>
+
+                                
                             </div>
                         </div>
                     </form>
