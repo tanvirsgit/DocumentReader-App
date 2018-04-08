@@ -10,7 +10,8 @@
     <br><br>
     @if(!Auth::guest())
         @if(Auth::user()->id == $document->user_id)
-        <a href="/documents/{{$document->id}}/edit" class="btn btn-info">Edit</a>
+        <a href="/documents/{{$document->id}}/edit" class="btn btn-info">Edit&nbsp;&nbsp;&nbsp;</a>
+        <br><br>
         {!! Form::open(['action' => ['DocumentsController@destroy', $document->id], 'method' => 'POST', 'class' => 'pull-right']) !!}
             {{Form::hidden('_method', 'DELETE')}}
             {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
