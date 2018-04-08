@@ -44,7 +44,7 @@ class LoginController extends Controller
 
     public function redirectToProvider()
     {
-        return Socialite::driver('github')->redirect();
+        return Socialite::driver('google')->redirect();
     }
 
     /**
@@ -53,13 +53,13 @@ class LoginController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    /*
+    
     // Redirects if fed ID is authorized function
     public function handleProviderCallback()
     {
         // Try if user object is retured from fed ID
         try{
-            $userInfo = Socialite::driver('github')->user();
+            $userInfo = Socialite::driver('google')->user();
         } catch(\Exception $e) {
             return redirect('/');
         } 
@@ -78,7 +78,7 @@ class LoginController extends Controller
 
             $user->socialProvider()->create([
                 'provider_id' => $userInfo->getId(),
-                'provider' => 'github'
+                'provider' => 'google',
             ]);
         } else{
 
@@ -89,26 +89,22 @@ class LoginController extends Controller
         }
     }
 
-    */
-
-    
+    /*
     public function handleProviderCallback()
     {
-        $github = Socialite::driver('github')->user();
+        $github = Socialite::driver('google')->user();
 
         $user = new User;
         $user->name = $github->getName();
         $user->email = $github->getEmail();
         $user->save();
-
+        
         // login the user
 
         // redirect to the homepage
-
         
-        print_r($user);
+        print_r($github);
         // $user->token;
     }
-
-    
-}
+    */
+}   

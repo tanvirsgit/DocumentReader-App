@@ -60,7 +60,7 @@
                                 <br><br>
                                 <p>Or</p>
                                 <hr>
-                                <a href="{{ url('login/google') }}" class="btn btn-success">Login with Google</a>
+                                <a href="{{ url('login/google') }}" class="btn btn-danger">Login with Google</a>
                                 <a href="{{ url('login/github') }}" class="btn btn-success">Login with GitHub</a>
 
                                 

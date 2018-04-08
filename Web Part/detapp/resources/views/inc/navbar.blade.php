@@ -14,10 +14,13 @@
               <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                    <a id="gaze" class="nav-link" href="/documents">Documents</a>
-                  </li>
+                <a id="gaze" class="nav-link" href="/documents">Documents</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="/help">Help</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://webgazer.cs.brown.edu/demo.html" target="_blank">Calibrate</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/about">About</a>

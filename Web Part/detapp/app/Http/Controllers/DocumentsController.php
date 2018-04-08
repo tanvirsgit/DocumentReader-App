@@ -24,13 +24,16 @@ class DocumentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    // Returns all uploaded documents viewable publicly
+    // Indexed in descending order, with a paginate options 3 per page
     public function index()
     {
         //$documents = Document::orderBy('title', 'desc')->get();
         //$documents = Document::orderBy('title', 'desc')->take(1)->get();
         //$documents = DB::select('SELECT * FROM documents');
         //$document = Document::where('title', 'Document Two')->get();
-        $documents = Document::orderBy('created_at', 'desc')->paginate(5);
+        $documents = Document::orderBy('created_at', 'desc')->paginate(3);
 
         //$documents = Document::all();
 
@@ -53,6 +56,9 @@ class DocumentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+     // Document validations, title/initials required.
+     // User can choose not to upload a document, in case a no_document.pdf is stored as a name
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -78,7 +84,7 @@ class DocumentsController extends Controller
         }
 
         // Create Document
-
+        // Populating the details of a new document instance with required fields
         $document = new Document;
         $document->title = $request->input('title');
         $document->initials = $request->input('initials');
@@ -112,7 +118,7 @@ class DocumentsController extends Controller
         $document = Document::find($id);
 
         // Check for correct user
-
+        // Only returns documents matched with user uploads
         if(auth()->user()->id !== $document->user_id){
             return redirect('/documents')->with('error', 'Unauthorized Page');
         }
@@ -130,6 +136,7 @@ class DocumentsController extends Controller
     // Document upload function, keeps data already populated in database
     public function update(Request $request, $id)
     {
+        // Document upload validations
         $this->validate($request, [
             'title' => 'required',
             'initials' => 'required'
@@ -150,7 +157,11 @@ class DocumentsController extends Controller
         }
 
         // Update Document
-
+        /* Current document is replaced only if
+         * a new upload is selected via the file browse
+         * button
+        */
+        
         $document = Document::find($id);
         $document->title = $request->input('title');
         $document->initials = $request->input('initials');
@@ -175,6 +186,8 @@ class DocumentsController extends Controller
         $document = Document::find($id);
 
         // Check for correct user
+        // Deletes the document if only user is matched against the uploaded document
+        // If it does not match, the request is redirected to an unauthorized page
         if(auth()->user()->id !== $document->user_id){
             return redirect('/documents')->with('error', 'Unauthorized Page');
         }

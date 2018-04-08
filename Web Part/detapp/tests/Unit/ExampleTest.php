@@ -5,6 +5,8 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Faker\Generator as faker;
+use App\User;
+use Illuminate\Http\Response;
 
 class ExampleTest extends TestCase
 {
@@ -59,11 +61,14 @@ class ExampleTest extends TestCase
         $response->assertRedirect('/login');
     }
 
+    // Check if the navbar include is successfully loaded
     public function testAppSuccessfulLoad(){
         $navbar = $this->get('/');
         $navbar->assertSeeInOrder(['Home', 'Documents', 'Help', 'About']);
     }
 
+    /*
+    // Testing wether a fake email address can register via the registration page
     public function testRegistration()
     {
         $email = $this->faker->email;
@@ -75,5 +80,56 @@ class ExampleTest extends TestCase
 
         $this->assertEquals($email, auth()->user()->email);
     }
-    
+    */
+
+    /*
+    public function testUserAuthentication(){
+        $user = new App\User;
+
+    }
+    */
+    /*
+    public function test_i_can_create_an_account()
+    {
+        $this->get('/register')
+            ->type('Me', 'name')
+            ->type('someone@outlook.com', 'email')
+            ->type('secret', 'password')
+            ->type('secret', 'password_confirmation')
+            ->press('Register')
+            ->see('register')
+            ->seeInDatabase('users', ['email' => 'someone@outlook.com']);
+    }
+
+    */
+    /*
+    public function testApplication(){
+        $user = factory(App\User::class)->create();
+
+        
+        $this->actingAs($user)
+            ->withSession(['foo' => 'bar'])
+            ->visit('/')
+            ->see('Hello, '.$user->name);
+        
+    }
+    */
+
+    // Testing wether certain users exist in database/already registered
+    public function testUsersRegistered(){
+        // Make call to application...
+        $this->assertDatabaseHas('users', [
+            'email' => 'dipanzan@live.com',
+            'email' => 'niyaz@gmail.com',
+            'email' => 'abir@gmail.com'
+        ]);
+    }
+
+    // Testing wether users with not registered emails
+    public function testUsersNotYetRegistered(){
+        $this->assertDatabaseMissing('users', [
+            'email' => 'example@example.com',
+            'email' => 'dipanzan1@live.com'
+        ]);
+    }
 }
