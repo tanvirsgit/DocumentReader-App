@@ -1,7 +1,5 @@
 window.onload = function() {
 
-    
-
     var width = 320;
     var height = 240;
     var topDist = '0px';
@@ -13,16 +11,16 @@ window.onload = function() {
         var video = document.getElementById('webgazerVideoFeed');
 
         //Position the camera feedback to the top left corner.
-        //video.style.display = 'block';
-        //video.style.position = 'fixed';
-        //video.style.top = topDist;
-        //video.style.left = leftDist;
+        video.style.display = 'block';
+        video.style.position = 'fixed';
+        video.style.top = topDist;
+        video.style.left = leftDist;
 
         //Set up the video feedback box size
-        //video.width = width;
-        //video.height = height;
-        //video.style.margin = '0px';
-        //video.style.background = '#222222';
+        video.width = width;
+        video.height = height;
+        video.style.margin = '0px';
+        video.style.background = '#222222';
         webgazer.params.imgWidth = width;
         webgazer.params.imgHeight = height;
 
