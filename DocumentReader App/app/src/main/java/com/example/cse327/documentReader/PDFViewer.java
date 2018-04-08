@@ -37,7 +37,6 @@ public class PDFViewer extends AppCompatActivity{
         pdfView=(PDFView)findViewById(R.id.pdfView);
         pdfView.fromAsset("sample.pdf").load();
         requestPermissions(PERMISSION,INT_VALUE);
-        //EventBus.getDefault().register(this);
         Track();
     }
 
@@ -53,16 +52,16 @@ public class PDFViewer extends AppCompatActivity{
         EventBus.getDefault().unregister(this);
     }
 
-    @Subscribe
-    public void FaceNotFocusingEvent(FaceNotFoucingOnScreen event)
+    @Subscribe(threadMode=ThreadMode.MAIN)
+    public void readingDocumentEvent(ReadingDocumentEvent event)
     {
-        Log.d("Facetracking", "onUpdate: Face Is Pointing elsewhere");
+        Log.d("Reading Document", "readingDocumentEvent: User is reading the document");
     }
-    @Subscribe
-    public void EyesClosedEvent(EyesClosedEvent event)
+
+    @Subscribe(threadMode=ThreadMode.MAIN)
+    public void eyesClosedEvent(EyesClosedEvent event)
     {
         Log.d("eyes closed","Closed");
-        //Toast.makeText(this,"Your left eye is closed",Toast.LENGTH_LONG).show();
     }
 
     //Reference : https://developer.android.com/training/permissions/requesting.html?#java
@@ -109,29 +108,15 @@ public class PDFViewer extends AppCompatActivity{
     }
 
     public void Track(){
-        /*
-        if(ContextCompat.checkSelfPermission(getApplicationContext(),Manifest.permission.CAMERA)==PackageManager.PERMISSION_GRANTED)
-        {
-            try{
-                cameraSource.start();
-            }
-            catch (IOException e) {
-                Toast.makeText(this,e.toString(),Toast.LENGTH_LONG).show();
-            }
 
-            if(faceAndEyeTracker.eyesClosed)
-                Toast.makeText(this,"Your eyes are closed",Toast.LENGTH_LONG).show();
-        }
-         */
         faceAndEyeTracker=new FaceAndEyeTracker();
         faceDetector=new FaceDetector.Builder(getApplicationContext())
                 .setProminentFaceOnly(true)
                 .setTrackingEnabled(true)
                 .setMode(FaceDetector.FAST_MODE)
                 .setClassificationType(FaceDetector.ALL_CLASSIFICATIONS)
-               .setLandmarkType(FaceDetector.ALL_LANDMARKS)
+                .setLandmarkType(FaceDetector.ALL_LANDMARKS)
                 .build();
-
         faceDetector.setProcessor(
                 new LargestFaceFocusingProcessor.Builder(
                         faceDetector,faceAndEyeTracker).build());
@@ -141,7 +126,7 @@ public class PDFViewer extends AppCompatActivity{
 
         cameraSource=new CameraSource.Builder(this,faceDetector)
                 .setFacing(CameraSource.CAMERA_FACING_FRONT)
-                .setRequestedFps(5f)
+                .setRequestedFps(30f)
                 .setRequestedPreviewSize(640,480)
                 .build();
     }
