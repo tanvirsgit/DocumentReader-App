@@ -10,6 +10,14 @@
         android:layout_height="match_parent"
         android:id="@+id/pdfView"
         >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnR"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="Stop Reading"/>
     </com.github.barteksc.pdfviewer.PDFView>
 
 </android.support.constraint.ConstraintLayout>

@@ -14,7 +14,10 @@ public class FaceAndEyeTracker extends Tracker<Face>{
         if((face.getIsLeftEyeOpenProbability()<FOCUSING_PROBABILITY)&&(face.getIsRightEyeOpenProbability()<FOCUSING_PROBABILITY))
             EventBus.getDefault().post(new EyesClosedEvent());
         else if((face.getIsLeftEyeOpenProbability()>FOCUSING_PROBABILITY)&&(face.getIsRightEyeOpenProbability()>FOCUSING_PROBABILITY))
+        {
             EventBus.getDefault().post(new ReadingDocumentEvent());
+            EventBus.getDefault().post(new ReadingDuration());
+        }
     }
 
 }

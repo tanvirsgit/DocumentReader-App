@@ -2,16 +2,20 @@ package com.example.cse327.documentReader;
 
 import android.Manifest;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.github.barteksc.pdfviewer.PDFView;
@@ -39,7 +43,9 @@ public class PDFViewer extends AppCompatActivity{
     private FaceAndEyeTracker faceAndEyeTracker;
     private CameraSource cameraSource;
     private Handler handler;
-    private int interval=10000;
+    private int interval=30000;
+    private long readingDuration=0;
+    private Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +57,16 @@ public class PDFViewer extends AppCompatActivity{
         Track();
         handler=new Handler();
         startTakingPicture();
+        btn=(Button)findViewById(R.id.btnR);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(PDFViewer.this,ReportView.class);
+                i.putExtra("Value1",readingDuration/1000);
+                startActivity(i);
+
+            }
+        });
     }
 
     Runnable periodicalPhotoTaker=new Runnable() {
@@ -78,10 +94,13 @@ public class PDFViewer extends AppCompatActivity{
         }, new CameraSource.PictureCallback() {
             @Override
             public void onPictureTaken(byte[] bytes) {
+
+                //Code for taking picture from camera source
                 Bitmap bitmap= BitmapFactory.decodeByteArray(bytes,0,bytes.length);
                 ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG,80,byteArrayOutputStream);
-                File picture=new File(Environment.getExternalStorageDirectory(),File.separator+String.valueOf(System.currentTimeMillis()+"CSE327.jpg"));
+                String fileName=String.valueOf(System.currentTimeMillis());
+                File picture=new File(Environment.getExternalStorageDirectory(),File.separator+fileName+"CSE327.jpg");
                 try{
                     picture.createNewFile();
                     FileOutputStream fileOutputStream=new FileOutputStream(picture);
@@ -97,14 +116,24 @@ public class PDFViewer extends AppCompatActivity{
             }
         });
     }
-    //Registering eventbus to this activity in onStart method
+
     @Override
-    public void onStart() {
+    public void onStart(){
         super.onStart();
         EventBus.getDefault().register(this);
     }
+    @Override
+    public void onPause(){
+        super.onPause();
+        cameraSource.stop();
+    }
+    //Registering eventbus to this activity in onStart method
+    public void onResume(){
+        super.onResume();
+        startCamera();
+    }
 
-    //Unregistering eventbus from this activity in osStop method
+    //Unregister event bus from this activity in osStop method
     @Override
     public void onStop() {
         super.onStop();
@@ -118,12 +147,29 @@ public class PDFViewer extends AppCompatActivity{
         cameraSource.stop();
         faceDetector.release();
         stopTakingPicture();
+        Log.d("Duration",String.valueOf(readingDuration/1000));
+    }
+
+    // Calculates the duration of Reading
+    @Subscribe(threadMode = ThreadMode.POSTING)
+    public void readingTheDuration(ReadingDuration event){
+        readingDuration= SystemClock.currentThreadTimeMillis();
     }
 
     //Observer that listens the event ReadingDocumentEvent
     @Subscribe(threadMode=ThreadMode.MAIN)
     public void readingDocumentEvent(ReadingDocumentEvent event)
     {
+        //Makes toast duration slower
+        final Toast toastReading=Toast.makeText(getApplicationContext(),"User is Reading",Toast.LENGTH_SHORT);
+        toastReading.show();
+        Handler toasthandler=new Handler();
+        toasthandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                toastReading.cancel();
+            }
+        },150);
         Log.d("Reading Document", "readingDocumentEvent: User is reading the document");
     }
 
@@ -148,7 +194,7 @@ public class PDFViewer extends AppCompatActivity{
                 }
                 else {
                     AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-                    alertDialog.setTitle("Permission for camera")
+                    alertDialog.setTitle("Permission for camera and storage")
                             .setMessage("Permission needed for eye tracking while reading")
                             .setPositiveButton("Grant", new DialogInterface.OnClickListener() {
                                 @Override
